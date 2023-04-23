@@ -35,10 +35,12 @@ function MusicPlayer({ song, imgSrc, auto }) {
   const changePlayPause = () => {
     const prevValue = isPlaying;
     setPlay(!prevValue);
-
+    console.log(`we reach here prevValue ${!prevValue}`)
     if (!prevValue) {
       audioPlayer.current.play();
+      console.log(`line 41`);
       animationRef.current = requestAnimationFrame(whilePlaying);
+      console.log('line 43')
     } else {
       audioPlayer.current.pause();
       cancelAnimationFrame(animationRef.current);
