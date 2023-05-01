@@ -13,7 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #f1f1f1;
+  color: #c88828;
 }
 
 .logoContainer .logo {
@@ -43,16 +43,16 @@
 
 .searchBox input {
   width: 100%;
-  height: 100%;
+  height: 150%;
   border: none;
   outline: none;
   background: rgba(0, 0, 0, 0.5);
-
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
   padding-left: 45px;
+  padding-bottom: 50px;
   color: #f1f1f1;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .searchBox input::placeholder {
@@ -66,7 +66,7 @@
   width: 45px;
   height: 45px;
   text-align: center;
-  line-height: 45px;
+  line-height: 70px;
   font-size: 20px;
 }
 
@@ -114,13 +114,13 @@
   left: -15px;
   width: 0px;
   height: 100%;
-  background: #49e12e;
+  background: #c88828;
   border-radius: 5px;
 }
 
 .menuContainer ul li:hover a,
 .menuContainer ul li.active a {
-  color: #f1f1f1;
+  color: #c88828;
   transition: 0.3s;
 }
 
@@ -189,90 +189,6 @@
   margin-left: auto;
 }
 
-.trackList {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.trackList .top {
-  display: flex;
-  align-items: center;
-}
-
-.trackList .top img {
-  width: 50px !important;
-}
-
-.trackList .top p {
-  margin-left: 15px;
-  color: #f1f1f1;
-  font-size: 14px;
-}
-
-.trackList .top p span {
-  display: block;
-  font-size: 12px;
-  color: #848484;
-}
-
-.trackList .bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 20px;
-  color: #848484;
-}
-
-.trackList .bottom i {
-  font-size: 18px;
-}
-
-.trackList .bottom i:hover {
-  color: #f1f1f1;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.trackList .bottom input {
-  position: relative;
-  height: 5px;
-  border: none;
-  outline: none;
-  appearance: none;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* chrome and safari browser */
-.trackList .bottom input::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  background: #49e12e;
-  width: 50%;
-  height: 100%;
-  border-radius: 10px;
-  z-index: 2;
-  transition: width 250ms linear;
-}
-
-.trackList .bottom input::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 10px;
-  height: 20px;
-  border-radius: 10px;
-  border: 2px solid #000;
-  cursor: pointer;
-  position: relative;
-  margin: -2px 0 0 0;
-  z-index: 3;
-  box-sizing: border-box;
-  transition: all 250ms linear;
-  background: #f1f1f1;
-}
-
 @media screen and (max-width: 550px) {
   .leftMenu {
     min-width: 64px;
@@ -280,10 +196,6 @@
   }
 
   .leftMenu .searchBox {
-    display: none;
-  }
-
-  .leftMenu .trackList {
     display: none;
   }
 

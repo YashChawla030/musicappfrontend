@@ -5,6 +5,10 @@ import { BsMusicNoteList, BsTrash } from "react-icons/bs";
 import { PlayList } from "./PlayList";
 
 function MenuPlayList() {
+
+  const onTrashClick=(id)=>{
+    console.log("You Press Me") 
+  }
   return (
     <div className="playListContainer">
       <div className="nameContainer">
@@ -22,7 +26,7 @@ function MenuPlayList() {
                 <BsMusicNoteList />
               </i>
               <p>{list.name}</p>
-              <i className="trash">
+              <i className="trash" onClick={onTrashClick(list.id)}>
                 <BsTrash />
               </i>
             </div>
