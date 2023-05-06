@@ -13,8 +13,7 @@ function Dashboard() {
     <div className="App">
       <div className=""></div>
       <LeftMenu />
-      <MainContainer />
-      
+      <MainContainer />      
 
       <div className="background"></div>
     </div>
