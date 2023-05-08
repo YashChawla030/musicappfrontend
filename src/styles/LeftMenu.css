@@ -40,12 +40,19 @@
   color: #848484;
   overflow: hidden;
   border-radius: 10px;
+  margin-bottom: 30px;;
 }
 
 .search-elements {
   /* list-style: none; */
   color: #f1f1f1;
   margin: 2px;
+  position: relative;
+  box-sizing: content-box;
+}
+
+.search-elements:hover {
+  color: #c88828;
 }
 
 .searchBox input {
