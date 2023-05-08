@@ -2,32 +2,31 @@ import React, { useEffect, useState } from "react";
 import { FaHeadphones, FaRegClock, FaRegHeart, FaHeart } from "react-icons/fa";
 import "../styles/LeftMenu.css";
 import MusicPlayer from "./MusicPlayer";
-import { Songs } from "./Songs";
 
 function AudioList() {
-  const [songs, setSongs] = useState(Songs);
-  const [song, setSong] = useState(songs[0].song);
-  const [img, setImage] = useState(songs[0].imgSrc);
+  const [songs, setSongs] = useState([]);
+  const [song, setSong] = useState("");
+  const [img, setImage] = useState("");
   const [auto, setAuto] = useState(false);
 
   useEffect(() => {
-    const allSongs = document.querySelectorAll(".songs");
-    function changeActive() {
-      allSongs.forEach((n) => n.classList.remove("active"));
-      this.classList.add("active");
-    }
-
-    allSongs.forEach((n) => n.addEventListener("click", changeActive));
+    // Make API request to get songs list
+    fetch("http://localhost:8081/allMusic")
+      .then((response) => response.json())
+      .then((data) => setSongs(data));
   }, []);
 
   const changeFavourite = (id) => {
-    Songs.forEach((song) => {
+    const updatedSongs = songs.map((song) => {
       if (song.id == id) {
-        song.favourite = !song.favourite;
+        return {
+          ...song,
+          favourite: !song.favourite,
+        };
       }
+      return song;
     });
-
-    setSongs([...songs]);
+    setSongs(updatedSongs);
   };
 
   const setMainSong = (songSrc, imgSrc) => {
@@ -48,7 +47,7 @@ function AudioList() {
             <div
               className="songs"
               key={song?.id}
-              onClick={() => setMainSong(song?.song, song?.imgSrc)}
+              onClick={() => setMainSong(song?.musicLink, song?.imgSrc)}
             >
               <div className="count">
                 <p>{`#${index + 1}`}</p>
@@ -59,7 +58,7 @@ function AudioList() {
                 </div>
                 <div className="section">
                   <p className="songName">
-                    {song?.songName}{" "}
+                    {song?.name}{" "}
                     <span className="songSpan">{song?.artist}</span>
                   </p>
 

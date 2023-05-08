@@ -63,7 +63,11 @@ function LeftMenu() {
       </div>
       {showList && (
         <div>
-          <ul>
+          <ul style={
+          {
+            listStyle:'none'
+          }
+          }>
           {data.split(',').map(item => <li className="search-elements" key={item}>{item}</li>)}
           </ul>
         </div>

@@ -8,6 +8,7 @@ const LoginSignUp = () => {
     const [name,setName] = useState(null);
     const [password,setPassword] = useState(null);
     const [email,setEmail] = useState(null);
+    const [isError, setError] = useState(false);
     const navigate = useNavigate();
       const getUsersSignup= async (e) => {
         e.preventDefault();
@@ -20,7 +21,8 @@ const LoginSignUp = () => {
                 'Content-Type': 'application/json'
               },
               method: "POST",
-              body: JSON.stringify({"name": name, "emailId": email, "password": password})});
+              body: JSON.stringify({"name": name, "emailId": email, "password": password})})
+  
         
             console.log('response.status: ', response.status); 
             console.log(response);
@@ -38,6 +40,9 @@ const LoginSignUp = () => {
         
       }
     const getUsersLogin= async (e) => {
+      if (name=== "" && password === "") {
+        return
+      }
       e.preventDefault();
       console.log("Handler Call")
   
@@ -48,13 +53,21 @@ const LoginSignUp = () => {
               'Content-Type': 'application/json'
             },
             method: "POST",
-            body: JSON.stringify({"username": name, "password": password})});
+            body: JSON.stringify({"username": name, "password": password})})
       
           console.log('response.status: ', response.status); 
           console.log(response);
           if(response.status===200){
+            let jsonData = await response.json();
+            console.log("Value of dta is "+JSON.stringify(jsonData));
+            let stringifyJsondata = JSON.stringify(jsonData);
+            let temp  = JSON.parse(stringifyJsondata);
+            if (temp["authenticate"]){
             console.log("Navigation ot SignUp")
             navigate('/dashboard');
+            }else{
+              setError(true)
+            }
           }
         } catch (err) {
           console.log(err);
@@ -74,6 +87,7 @@ const LoginSignUp = () => {
 					<label for="chk" aria-hidden="true">Welcome</label>
                     <input className='input-field' type={'text'} autoComplete={"new-user"} placeholder={'Enter Your username'} onChange={e => setName(e.target.value)}/>
                     <input className='input-field' type={'password'} autoComplete="new-password" placeholder={'Enter Your Password'} onChange={e => setPassword(e.target.value)}/>
+                    { isError && <label style={{color: 'black', fontSize: 12}}>username or password is incorrect</label> }
 					<button>Login</button>
 				</form>
 			</div>
