@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/LeftMenu.css";
 import { FaSpotify, FaEllipsisH, FaMusic } from "react-icons/fa";
 import { BiSearchAlt } from "react-icons/bi";
@@ -10,35 +10,34 @@ import { useNavigate} from 'react-router-dom';
 
 function LeftMenu() {
   const navigate = useNavigate();
+  const [data,setData] = useState('');
   const [name,setName] = React.useState(null);
+  const [showList, setShowList] = React.useState(false);
   const logout=() => {
     navigate('/');
   }
-  const searchsongs=() => {
-    async function makeRequest() {
-      try {
-        const response = await fetch(`http://127.0.0.1:8000/search/?song=${name}`,{headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          method: "POST"})
-          
-    
-        console.log('response.status: ', response.status); 
-        console.log(response);
-        if(response.status===200){
-          console.log("we get data")
-          
-        }
-      } catch (err) {
-        console.log(err);
-      }
+  const searchsongs= async () => {
+    setShowList(false);
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/search/?song=${name}`,{headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST"});
+      const localData = await response.json();
+      console.log(`localData song is ${localData.message}`)
+      setData(localData.message);
+      console.log(`Search Song data is ${data}`)
+    } catch (error) {
+      console.log('Error fetching data:', error);
     }
-    
-    makeRequest();
-  
-    
-  }
+  };
+  
+  useEffect(() => {
+    console.log('Data updated:', data);
+    setShowList(true);
+  }, [data]);
+
   return (
     <div className="leftMenu">
       <div className="logoContainer">
@@ -62,8 +61,13 @@ function LeftMenu() {
           <BiSearchAlt onClick={searchsongs}/>
         </i>
       </div>
-
-    
+      {showList && (
+        <div>
+          <ul>
+          {data.split(',').map(item => <li className="search-elements" key={item}>{item}</li>)}
+          </ul>
+        </div>
+      )}
   
       <Menu title={"Menu"} listObject={MenuList} />
 
