@@ -85,18 +85,18 @@ const LoginSignUp = () => {
             <div className="login">
 				<form onSubmit={getUsersLogin}>
 					<label for="chk" aria-hidden="true">Welcome</label>
-                    <input className='input-field' type={'text'} autoComplete={"new-user"} placeholder={'Enter Your username'} onChange={e => setName(e.target.value)}/>
-                    <input className='input-field' type={'password'} autoComplete="new-password" placeholder={'Enter Your Password'} onChange={e => setPassword(e.target.value)}/>
-                    { isError && <label style={{color: 'black', fontSize: 12}}>username or password is incorrect</label> }
+                    <input className='inputt-field' type={'text'} autoComplete={"new-user"} placeholder={'Enter Your username'} onChange={e => setName(e.target.value)}/>
+                    <input className='inputt-field' type={'password'} autoComplete="new-password" placeholder={'Enter Your Password'} onChange={e => setPassword(e.target.value)}/>
+                    { isError && <label style={{color: 'black', fontSize: 12}}>Username or Password is Incorrect!</label> }
 					<button>Login</button>
 				</form>
 			</div>
             <div className="signup">
 				<form onSubmit={getUsersSignup}>
 					<label for="chk" aria-hidden="true">New Account</label>
-					<input className='input-field' type={'text'} autoComplete="new-password" placeholder={'Enter Your Name'} onChange={e => setName(e.target.value)}/>
-                    <input className='input-field' type={'text'} autoComplete={"new-password"} placeholder={'Enter Your Email'} onChange={e => setEmail(e.target.value)}/>
-					<input className='input-field' type={'password'} autoComplete="new-password" placeholder={'Enter Your Password'} onChange={e => setPassword(e.target.value)}/>
+					<input className='inputt-field' type={'text'} autoComplete="new-password" placeholder={'Enter Your Name'} onChange={e => setName(e.target.value)}/>
+                    <input className='inputt-field' type={'text'} autoComplete={"new-password"} placeholder={'Enter Your Email'} onChange={e => setEmail(e.target.value)}/>
+					<input className='inputt-field' type={'password'} autoComplete="new-password" placeholder={'Enter Your Password'} onChange={e => setPassword(e.target.value)}/>
 					<button>Sign Up</button>
 				</form>
 			</div>

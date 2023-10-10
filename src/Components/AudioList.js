@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { FaHeadphones, FaRegClock, FaRegHeart, FaHeart } from "react-icons/fa";
+import {  FaRegHeart, FaHeart } from "react-icons/fa";
 import "../styles/LeftMenu.css";
 import MusicPlayer from "./MusicPlayer";
 
+
 function AudioList() {
   const [songs, setSongs] = useState([]);
+  const [songname, setsongname] = useState("");
   const [song, setSong] = useState("");
   const [img, setImage] = useState("");
   const [auto, setAuto] = useState(false);
@@ -29,9 +31,10 @@ function AudioList() {
     setSongs(updatedSongs);
   };
 
-  const setMainSong = (songSrc, imgSrc) => {
+  const setMainSong = (songSrc, imgSrc, songname) => {
     setSong(songSrc);
     setImage(imgSrc);
+    setsongname(songname);
     setAuto(true);
   };
 
@@ -47,7 +50,7 @@ function AudioList() {
             <div
               className="songs"
               key={song?.id}
-              onClick={() => setMainSong(song?.musicLink, song?.imgSrc)}
+              onClick={() => setMainSong(song?.musicLink, song?.imgSrc, song?.name)}
             >
               <div className="count">
                 <p>{`#${index + 1}`}</p>
@@ -63,19 +66,7 @@ function AudioList() {
                   </p>
 
                   <div className="hits">
-                    <p className="hit">
-                      {/* <i>
-                        <FaHeadphones />
-                      </i>
-                      95,490,102 */}
-                    </p>
-
-                    <p className="duration">
-                      {/* <i>
-                        <FaRegClock />
-                      </i>
-                      03:04 */}
-                    </p>
+                    
                     <div
                       className="favourite"
                       onClick={() => changeFavourite(song?.id)}
@@ -97,7 +88,7 @@ function AudioList() {
           ))}
       </div>
 
-      <MusicPlayer song={song} imgSrc={img} autoplay={auto} />
+      <MusicPlayer song={song} imgSrc={img} songname={songname} autoplay={auto} />
     </div>
   );
 }

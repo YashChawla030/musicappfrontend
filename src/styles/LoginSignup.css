@@ -33,7 +33,7 @@ label{
 	cursor: pointer;
 	transition: .5s ease-in-out;
 }
-input{
+.inputt-field{
 	width: 60%;
 	height: 30px;
 	background: #ffffff;

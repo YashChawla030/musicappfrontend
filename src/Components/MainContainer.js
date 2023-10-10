@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "../styles/MainContainer.css";
-import { FaUsers } from "react-icons/fa";
 import { AudioList } from "./AudioList";
+
 
 
 function MainContainer() {

@@ -277,7 +277,7 @@
 
 .AudioList .songs:hover,
 .AudioList .songs:hover .song .section .songName .songSpan {
-  color: #f1f1f1;
+  color: #bf642f;
   transition: all 0.3s;
   cursor: pointer;
 }

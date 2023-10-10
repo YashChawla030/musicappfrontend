@@ -1,0 +1,45 @@
+.footer {
+    width: 100%;
+    margin-bottom: 0%;
+    height:410px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    border-radius: 0px 0px 0px 0px;
+}
+
+.border-line {
+    width: 60%;
+    border-top: 2px solid rgb(179, 104, 42);
+}
+.thanks-label {
+    text-align: center;
+    width: 100%;
+    font-size: 10px;
+    color: aliceblue;
+    padding: 0px;
+}
+
+.thanks1-label {
+    text-align: center;
+    width: 100%;
+    font-size: 5px;
+    color: aliceblue;
+    padding: 0px;
+}
+
+.url-div{
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.icon-link {
+    margin: 5px;
+    padding: 10px;
+    display: block;
+    align-items: center;
+    background-color: #151514;
+}

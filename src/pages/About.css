@@ -1,0 +1,33 @@
+.about-section{
+    width: 100%;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    
+}
+
+.label-container{
+    color: #ff0000;
+    font-size: 9px;
+    font-weight: 100;
+    font: medium;
+}
+
+.project-container{
+    display: flex;
+    padding: 80px;
+    justify-content: center;
+}
+
+.check-btn{
+    color: aliceblue;
+    background-color: #151515;
+    padding: 15px;
+    border-radius: 10px;
+    display: inline;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -13,7 +13,7 @@ import {
 } from "react-icons/fa";
 import { BsDownload } from "react-icons/bs";
 
-function MusicPlayer({ song, imgSrc, auto }) {
+function MusicPlayer({ song, songname, imgSrc, auto }) {
   const [isLove, setLove] = useState(false);
   const [isPlaying, setPlay] = useState(false);
   //   duration state
@@ -35,12 +35,12 @@ function MusicPlayer({ song, imgSrc, auto }) {
   const changePlayPause = () => {
     const prevValue = isPlaying;
     setPlay(!prevValue);
-    console.log(`we reach here prevValue ${!prevValue}`)
+   
     if (!prevValue) {
       audioPlayer.current.play();
-      console.log(`line 41`);
+      
       animationRef.current = requestAnimationFrame(whilePlaying);
-      console.log('line 43')
+     
     } else {
       audioPlayer.current.pause();
       cancelAnimationFrame(animationRef.current);
@@ -75,6 +75,32 @@ function MusicPlayer({ song, imgSrc, auto }) {
     changeCurrentTime();
   };
 
+  const handleRewind = () => {
+    const currentTime = audioPlayer.current.currentTime;
+    const newTime = currentTime - 10; // Rewind 10 seconds
+    if (newTime >= 0) {
+      audioPlayer.current.currentTime = newTime;
+      changeCurrentTime();
+    } else {
+      audioPlayer.current.currentTime = 0;
+      changeCurrentTime();
+    }
+  };
+  
+  const handleSkip = () => {
+    const currentTime = audioPlayer.current.currentTime;
+    const newTime = currentTime + 10; // Skip 10 seconds
+    if (newTime <= duration) {
+      audioPlayer.current.currentTime = newTime;
+      changeCurrentTime();
+    } else {
+      audioPlayer.current.currentTime = duration;
+      changeCurrentTime();
+    }
+  };
+
+
+
   const changeCurrentTime = () => {
     progressBar.current.style.setProperty(
       "--played-width",
@@ -95,7 +121,13 @@ function MusicPlayer({ song, imgSrc, auto }) {
       </div>
       <div className="songAttributes">
         <audio src={song} preload="metadata" ref={audioPlayer} />
-
+        <header style = {{
+          color:'white',
+          paddingBottom:15,
+          paddingLeft:55
+        }}>
+          {songname}
+        </header>
         <div className="top">
           <div className="left">
             <div className="loved" onClick={changeSongLove}>
@@ -115,10 +147,9 @@ function MusicPlayer({ song, imgSrc, auto }) {
           </div>
 
           <div className="middle">
-            <div className="back">
-              <i>
-                <FaStepBackward />
-              </i>
+            
+         
+            <div className="back" onClick={handleRewind}>
               <i>
                 <FaBackward />
               </i>
@@ -134,14 +165,12 @@ function MusicPlayer({ song, imgSrc, auto }) {
                 </i>
               )}
             </div>
-            <div className="forward">
+            <div className="forward" onClick={handleSkip}>
               <i>
                 <FaForward />
               </i>
-              <i>
-                <FaStepForward />
-              </i>
             </div>
+            
           </div>
 
           <div className="right">

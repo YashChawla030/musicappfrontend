@@ -86,6 +86,13 @@
   align-items: center;
 }
 
+.musicPlayer .songAttributes .top .middle .back {
+ padding-right: 40px;
+}
+
+.musicPlayer .songAttributes .top .middle .forward {
+  padding-left: 15px;
+ }
 .musicPlayer .songAttributes .top .middle .playPause i {
   color: #000;
 }

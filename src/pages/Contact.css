@@ -1,0 +1,96 @@
+.container {
+    width: 100%;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black; 
+}
+
+.contact-title{
+    font-size: 32px;
+    color: rgb(179, 104, 42);
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.form-container{
+    display: block;
+    justify-content: center;
+}
+
+
+.form {
+    padding: 80px;
+    width: 60vw;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    border-radius: 25px;
+    background-color:black;
+}
+
+.form-container {
+    text-align: center; 
+}
+
+.input-container{
+    width: 80%;
+    display: inline-flex;
+    margin: 10px;
+}
+
+.input-field {
+    background-color: #21211f;
+    padding: 10px;
+    width: 70%;
+    margin: 10px;
+    border-radius: 10px;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.text-field {
+    background-color: #21211f;
+    padding: 10px;
+    width: 75%;
+    max-width: 75%;
+    min-width: 75%;
+    margin: 30px;
+    height: 30vh;
+    max-height: 30vh;
+    min-height: 30vh;
+    border-radius: 10px;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.send-btn {
+    display: flex;
+    justify-content: center;}
+
+.btn {
+    background-color: #21211f;
+    width: 25%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.btn:hover {
+    background-color: rgb(179, 104, 42);
+    color: #21211f;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+

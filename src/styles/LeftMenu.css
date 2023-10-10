@@ -14,7 +14,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #c88828;
+  color: #bf642f;
 }
 
 .logoContainer .logo {
@@ -34,7 +34,7 @@
 
 .searchBox {
   width: 100%;
-  height: 45px;
+  height: 55px;
   position: relative;
   margin-top: 20px;
   color: #848484;
@@ -52,7 +52,7 @@
 }
 
 .search-elements:hover {
-  color: #c88828;
+  color: #bf642f;
 }
 
 .searchBox input {
@@ -134,7 +134,7 @@
 
 .menuContainer ul li:hover a,
 .menuContainer ul li.active a {
-  color: #c88828;
+  color: #bf642f;
   transition: 0.3s;
 }
 
@@ -164,11 +164,11 @@
 
 .playListContainer .nameContainer i {
   cursor: pointer;
-  color: #f1f1f1;
+  color: #bf642f;
 }
 
 .playListContainer .playListScroll {
-  height: 140px;
+  height: 230px;
   overflow-x: hidden;
   overflow-y: scroll;
   position: relative;
@@ -182,7 +182,7 @@
 }
 
 .playListContainer .playListScroll .playLists:hover {
-  color: #f1f1f1;
+  color: #bf642f;
   transition: all 0.3s;
 }
 
